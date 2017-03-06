@@ -119,7 +119,7 @@ elseif (${IOS_PLATFORM} STREQUAL "SIMULATOR64")
 	# This causes the installers to properly locate the output libraries
 	set (CMAKE_XCODE_EFFECTIVE_PLATFORMS "-iphonesimulator")
 else (${IOS_PLATFORM} STREQUAL "OS")
-	message (FATAL_ERROR "Unsupported IOS_PLATFORM value '${IOS_PLATFORM}' selected. Please choose OS or SIMULATOR")
+	message (FATAL_ERROR "Unsupported IOS_PLATFORM value '${IOS_PLATFORM}' selected. Please choose OS, SIMULATOR, or SIMULATOR64")
 endif (${IOS_PLATFORM} STREQUAL "OS")
 
 # Setup iOS developer location unless specified manually with CMAKE_IOS_DEVELOPER_ROOT
