@@ -102,20 +102,20 @@ set (BUILD_ARM64 ${BUILD_ARM64} CACHE STRING "Build arm64 arch or not")
 
 # Check the platform selection and setup for developer root
 if (${IOS_PLATFORM} STREQUAL "OS")
-        message (STATUS "-- Targeting iPhone platform")
+        message (STATUS "Targeting iPhone platform")
 	set (IOS_PLATFORM_LOCATION "iPhoneOS.platform")
 
 	# This causes the installers to properly locate the output libraries
 	set (CMAKE_XCODE_EFFECTIVE_PLATFORMS "-iphoneos")
 elseif (${IOS_PLATFORM} STREQUAL "SIMULATOR")
-        message (STATUS "-- Targeting iPhoneSimulator platform")
+        message (STATUS "Targeting iPhoneSimulator platform")
 	set (SIMULATOR true)
 	set (IOS_PLATFORM_LOCATION "iPhoneSimulator.platform")
 
 	# This causes the installers to properly locate the output libraries
 	set (CMAKE_XCODE_EFFECTIVE_PLATFORMS "-iphonesimulator")
 elseif (${IOS_PLATFORM} STREQUAL "SIMULATOR64")
-        message (STATUS "-- Targeting iPhoneSimulator64 platform")
+        message (STATUS "Targeting iPhoneSimulator64 platform")
     	set (SIMULATOR true)
 	set (IOS_PLATFORM_LOCATION "iPhoneSimulator.platform")
 
