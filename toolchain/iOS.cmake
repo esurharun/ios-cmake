@@ -92,7 +92,7 @@ endif (NOT DEFINED CMAKE_INSTALL_NAME_TOOL)
 if (NOT DEFINED IOS_PLATFORM)
 	set (IOS_PLATFORM "OS")
 endif (NOT DEFINED IOS_PLATFORM)
-#set (IOS_PLATFORM ${IOS_PLATFORM} CACHE STRING "Type of iOS Platform")
+set (IOS_PLATFORM ${IOS_PLATFORM} CACHE STRING "Type of iOS Platform")
 
 # Setup building for arm64 or not
 if (NOT DEFINED BUILD_ARM64)
@@ -123,6 +123,8 @@ endif (${IOS_PLATFORM} STREQUAL "OS")
 if (NOT DEFINED IOS_PLATFORM_LOCATION)
 	message (FATAL_ERROR "Unsupported IOS_PLATFORM value '${IOS_PLATFORM}' selected. Please choose OS, SIMULATOR, or SIMULATOR64")
 endif (NOT DEFINED IOS_PLATFORM_LOCATION)
+
+message (WARNING "Chose ${IO_PLATFORM_LOCATION}")
 
 # Setup iOS developer location unless specified manually with CMAKE_IOS_DEVELOPER_ROOT
 # Note Xcode 4.3 changed the installation location, choose the most recent one available
