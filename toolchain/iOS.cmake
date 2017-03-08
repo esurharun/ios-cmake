@@ -121,13 +121,9 @@ elseif (${IOS_PLATFORM} STREQUAL SIMULATOR64)
 
 	# This causes the installers to properly locate the output libraries
 	set (CMAKE_XCODE_EFFECTIVE_PLATFORMS "-iphonesimulator")
-endif (${IOS_PLATFORM} STREQUAL OS)
-
-if (NOT DEFINED IOS_PLATFORM_LOCATION)
+else (${IOS_PLATFORM} STREQUAL OS)
 	message (FATAL_ERROR "Unsupported IOS_PLATFORM value '${IOS_PLATFORM}' selected. Please choose OS, SIMULATOR, or SIMULATOR64")
-endif (NOT DEFINED IOS_PLATFORM_LOCATION)
-
-
+endif (${IOS_PLATFORM} STREQUAL OS)
 
 # Setup iOS developer location unless specified manually with CMAKE_IOS_DEVELOPER_ROOT
 # Note Xcode 4.3 changed the installation location, choose the most recent one available
@@ -162,13 +158,13 @@ set (CMAKE_OSX_SYSROOT ${CMAKE_IOS_SDK_ROOT} CACHE PATH "Sysroot used for iOS su
 message (STATUS "iOS sysroot=${CMAKE_OSX_SYSROOT}")
 
 # set the architecture for iOS 
-if (${IOS_PLATFORM} STREQUAL "OS")
+if (${IOS_PLATFORM} STREQUAL OS)
     set (IOS_ARCH armv7 armv7s arm64)
-elseif (${IOS_PLATFORM} STREQUAL "SIMULATOR")
+elseif (${IOS_PLATFORM} STREQUAL SIMULATOR)
     set (IOS_ARCH i386)
-elseif (${IOS_PLATFORM} STREQUAL "SIMULATOR64")
+elseif (${IOS_PLATFORM} STREQUAL SIMULATOR64)
     set (IOS_ARCH x86_64)
-endif (${IOS_PLATFORM} STREQUAL "OS")
+endif (${IOS_PLATFORM} STREQUAL OS)
 
 set (CMAKE_OSX_ARCHITECTURES ${IOS_ARCH} CACHE string  "Build architecture for iOS")
 message (STATUS "iOS arches=${IOS_ARCH}")
