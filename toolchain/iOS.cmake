@@ -101,27 +101,27 @@ endif (NOT DEFINED BUILD_ARM64)
 set (BUILD_ARM64 ${BUILD_ARM64} CACHE STRING "Build arm64 arch or not")
 
 # Check the platform selection and setup for developer root
-if (${IOS_PLATFORM} STREQUAL "OS")
+if (${IOS_PLATFORM} STREQUAL OS)
         message (STATUS "Targeting iPhone platform")
 	set (IOS_PLATFORM_LOCATION "iPhoneOS.platform")
 
 	# This causes the installers to properly locate the output libraries
 	set (CMAKE_XCODE_EFFECTIVE_PLATFORMS "-iphoneos")
-elseif (${IOS_PLATFORM} STREQUAL "SIMULATOR")
+elseif (${IOS_PLATFORM} STREQUAL SIMULATOR)
         message (STATUS "Targeting iPhoneSimulator platform")
 	set (SIMULATOR true)
 	set (IOS_PLATFORM_LOCATION "iPhoneSimulator.platform")
 
 	# This causes the installers to properly locate the output libraries
 	set (CMAKE_XCODE_EFFECTIVE_PLATFORMS "-iphonesimulator")
-elseif (${IOS_PLATFORM} STREQUAL "SIMULATOR64")
+elseif (${IOS_PLATFORM} STREQUAL SIMULATOR64)
         message (STATUS "Targeting iPhoneSimulator64 platform")
     	set (SIMULATOR true)
 	set (IOS_PLATFORM_LOCATION "iPhoneSimulator.platform")
 
 	# This causes the installers to properly locate the output libraries
 	set (CMAKE_XCODE_EFFECTIVE_PLATFORMS "-iphonesimulator")
-endif (${IOS_PLATFORM} STREQUAL "OS")
+endif (${IOS_PLATFORM} STREQUAL OS)
 
 if (NOT DEFINED IOS_PLATFORM_LOCATION)
 	message (FATAL_ERROR "Unsupported IOS_PLATFORM value '${IOS_PLATFORM}' selected. Please choose OS, SIMULATOR, or SIMULATOR64")
