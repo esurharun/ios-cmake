@@ -159,6 +159,7 @@ message (STATUS "iOS sysroot=${CMAKE_OSX_SYSROOT}")
 
 # set the architecture for iOS 
 if (${IOS_PLATFORM} STREQUAL OS)
+    set (OSX_UNIVERSAL true)
     set (IOS_ARCH armv7 armv7s arm64)
 elseif (${IOS_PLATFORM} STREQUAL SIMULATOR)
     set (IOS_ARCH i386)
